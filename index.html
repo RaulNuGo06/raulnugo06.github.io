@@ -128,6 +128,16 @@
   .tecnologias { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
   .tecnologias li { margin: 0; padding: .15rem .6rem; border-radius: 4px; font-size: .9rem; background: color-mix(in srgb, var(--branch) 14%, transparent); }
   .enlaces { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.1rem; font-weight: 600; }
+  .marca { display: flex; align-items: center; gap: .9rem; }
+  .marca img { width: 48px; height: 48px; border-radius: 12px; flex: none; }
+  .capturas {
+    display: flex; gap: .75rem; margin-top: 1.25rem;
+    overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .4rem;
+  }
+  .capturas img {
+    width: calc((100% - 2.25rem) / 4); min-width: 130px; height: auto;
+    border-radius: 14px; border: 1px solid var(--line); scroll-snap-align: start;
+  }
   .nota { color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
 
   /* Tecnologías */
@@ -181,8 +191,8 @@
       <li class="rama">
         <span class="punto" aria-hidden="true"></span>
         <time>oct 2026</time>
-        <h3>App de gestión para un gimnasio</h3>
-        <p>Primer cliente de RAMABIT: una app para socios y administradores con rutinas, récords, uso de máquinas, afluencia y avisos.</p>
+        <h3>App de marca blanca para gimnasios</h3>
+        <p>Cada gimnasio tiene su propia app, con su nombre y sus colores, sobre una base común. Ya está en piloto en un gimnasio real.</p>
       </li>
       <li class="rama">
         <span class="punto" aria-hidden="true"></span>
@@ -233,6 +243,30 @@
     <h2 id="t-proyectos">Proyectos</h2>
 
     <article class="proyecto destacado">
+      <div class="marca">
+        <img src="img/iron-club.png" alt="" width="48" height="48">
+        <h3>App de marca blanca para gimnasios</h3>
+      </div>
+      <p class="que">Una sola app que cada gimnasio lanza con su propia marca: nombre, logo, colores y ficha en las tiendas. La desarrollamos mi socio y yo, y ya está en piloto en un gimnasio real. El icono es el de Iron Club, la marca de demostración.</p>
+      <div class="capturas">
+        <img src="img/entreno.jpg" alt="Entreno en curso con series, pesos y temporizador de descanso" width="300" height="624" loading="lazy">
+        <img src="img/record.jpg" alt="Pantalla de celebración al batir un récord" width="300" height="624" loading="lazy">
+        <img src="img/historial.jpg" alt="Historial de entrenos con los récords de cada uno" width="300" height="624" loading="lazy">
+        <img src="img/afluencia.jpg" alt="Afluencia del gimnasio ahora y prevista para hoy" width="300" height="624" loading="lazy">
+      </div>
+      <ul>
+        <li>Para los socios: rutinas, entreno en vivo con descansos, récords que se detectan solos, historial, peso corporal y la afluencia del gimnasio por horas.</li>
+        <li>Para el gimnasio: aprobar socios, avisos, incidencias, catálogo de máquinas y ejercicios, y estadísticas de asistencia.</li>
+        <li>Varios gimnasios en una sola base de datos: cada uno solo ve lo suyo gracias a políticas de seguridad en Postgres (RLS).</li>
+        <li>Pruebas que montan una base de datos desechable e intentan saltarse ese aislamiento entre gimnasios para comprobar que no se puede.</li>
+      </ul>
+      <ul class="tecnologias" aria-label="Tecnologías">
+        <li>React Native</li><li>Expo</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>RLS</li>
+      </ul>
+      <p class="nota">El código es privado. Puedo enseñar la app funcionando en una entrevista.</p>
+    </article>
+
+    <article class="proyecto">
       <h3>Rivange</h3>
       <p class="que">App Android nativa para gestionar un complejo deportivo. La hice como proyecto de fin de ciclo y tiene 11 pantallas.</p>
       <ul>
@@ -246,12 +280,6 @@
         <li>Java</li><li>Android</li><li>Firebase Auth</li><li>Cloud Firestore</li><li>OkHttp</li><li>Home Assistant</li>
       </ul>
       <p class="enlaces"><a href="https://github.com/RaulNuGo06/Rivange">Ver el código</a></p>
-    </article>
-
-    <article class="proyecto">
-      <h3>App de gestión para un gimnasio</h3>
-      <p class="que">Para el primer cliente de RAMABIT, junto a mi socio. Los socios ven sus rutinas, récords y objetivos; el gimnasio gestiona socios, máquinas, avisos y afluencia.</p>
-      <p class="nota">El código es privado porque pertenece al cliente.</p>
     </article>
 
     <article class="proyecto">
