@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raúl Núñez González, desarrollador full stack</title>
+<meta name="description" content="Desarrollador full stack junior en Almendralejo (Badajoz). Java, Spring Boot, Angular, React y TypeScript.">
+<meta property="og:title" content="Raúl Núñez González, desarrollador full stack">
+<meta property="og:description" content="Desarrollador full stack junior en Almendralejo. Java, Spring Boot, Angular, React y TypeScript.">
+<meta property="og:image" content="https://raulnugo06.github.io/foto.jpg">
+<link rel="icon" href="foto.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16233F;
+    --ink-soft: #4A5875;
+    --paper: #F2F4F8;
+    --panel: #FFFFFF;
+    --line: #D5DBE6;
+    --main: #2A55E5;
+    --branch: #13966A;
+    --focus: #2A55E5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #E8ECF5;
+      --ink-soft: #A4AFC6;
+      --paper: #0F1830;
+      --panel: #16213D;
+      --line: #2A3658;
+      --main: #6F8FFF;
+      --branch: #3CC992;
+      --focus: #8FA8FF;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.6 "Source Sans 3", system-ui, sans-serif;
+  }
+  a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: .2em; }
+  a:hover { text-decoration-color: currentColor; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1rem; }
+
+  h1, h2, h3 { font-family: "Bricolage Grotesque", system-ui, sans-serif; line-height: 1.1; margin: 0; }
+  h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: 1.5rem; }
+  h3 { font-size: 1.25rem; font-weight: 700; }
+  p { margin: 0; }
+
+  /* Cabecera */
+  .hero { padding: 4.5rem 0 3.5rem; }
+  .hero img {
+    width: 96px; height: 96px; border-radius: 50%;
+    display: block; margin-bottom: 1.75rem;
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--main);
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 9vw, 4.75rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: .95;
+  }
+  .hero .intro { font-size: 1.25rem; color: var(--ink-soft); margin-top: 1.25rem; max-width: 34rem; }
+  .estado { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.25rem; font-weight: 600; }
+  .estado::before { content: ""; width: .6rem; height: .6rem; border-radius: 50%; background: var(--branch); }
+  .acciones { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+  .boton {
+    display: inline-block; padding: .7rem 1.2rem; border-radius: 999px;
+    font-weight: 600; text-decoration: none;
+    border: 2px solid var(--ink);
+  }
+  .boton.principal { background: var(--ink); color: var(--paper); }
+  .boton:hover { background: var(--main); border-color: var(--main); color: #fff; }
+
+  section { padding: 3rem 0; border-top: 1px solid var(--line); }
+
+  /* Historial tipo git */
+  .leyenda { display: flex; flex-wrap: wrap; gap: 1.25rem; color: var(--ink-soft); font-size: .95rem; margin: -.75rem 0 1.75rem; }
+  .leyenda span { display: inline-flex; align-items: center; gap: .45rem; }
+  .leyenda span::before { content: ""; width: .7rem; height: .7rem; border-radius: 50%; background: var(--main); }
+  .leyenda .l-rama::before { background: var(--branch); }
+
+  .log { list-style: none; margin: 0; padding: 0; }
+  .log li { position: relative; padding: 0 0 2rem 4.25rem; min-height: 3.5rem; }
+  .log li::before { /* rama principal */
+    content: ""; position: absolute; left: 12px; top: 0; bottom: 0; width: 3px; background: var(--main);
+  }
+  .log li:first-child::before { top: 1.1rem; }
+  .log li.rama:first-child::before { top: .35rem; }
+  .log li:last-child::before { bottom: auto; height: 1.1rem; }
+  .log .punto {
+    position: absolute; left: 4px; top: .45rem;
+    width: 19px; height: 19px; border-radius: 50%;
+    background: var(--paper); border: 4px solid var(--main);
+  }
+  .log .rama .punto { left: 32px; top: 1.6rem; border-color: var(--branch); }
+  .log .rama::after { /* curva desde la rama principal hasta el commit del proyecto */
+    content: ""; position: absolute; left: 12px; top: .35rem;
+    width: 29px; height: 1.3rem;
+    border-top: 3px solid var(--branch); border-right: 3px solid var(--branch);
+    border-top-right-radius: 14px;
+  }
+  .log .rama { padding-top: 1.15rem; }
+  .log time { display: block; font-size: .9rem; color: var(--ink-soft); }
+  .log h3 { font-size: 1.15rem; margin: .1rem 0 .3rem; }
+  .log p { color: var(--ink-soft); max-width: 36rem; }
+
+  /* Proyectos */
+  .proyecto { padding: 1.75rem 0; }
+  .proyecto + .proyecto { border-top: 1px dashed var(--line); }
+  .proyecto.destacado {
+    background: var(--panel); border: 1px solid var(--line); border-left: 6px solid var(--branch);
+    border-radius: 6px; padding: 1.75rem 1.5rem;
+  }
+  .proyecto.destacado + .proyecto { border-top: 0; }
+  .proyecto h3 { font-size: 1.6rem; }
+  .proyecto .que { margin-top: .5rem; }
+  .proyecto ul { margin: 1rem 0 0; padding-left: 1.2rem; }
+  .proyecto li { margin-bottom: .35rem; }
+  .tecnologias { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+  .tecnologias li { margin: 0; padding: .15rem .6rem; border-radius: 4px; font-size: .9rem; background: color-mix(in srgb, var(--branch) 14%, transparent); }
+  .enlaces { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.1rem; font-weight: 600; }
+  .nota { color: var(--ink-soft); font-style: italic; margin-top: 1rem; }
+
+  /* Tecnologías */
+  .stack { display: grid; grid-template-columns: 9rem 1fr; gap: .6rem 1.5rem; margin: 0; }
+  .stack dt { font-weight: 600; }
+  .stack dd { margin: 0; color: var(--ink-soft); }
+
+  footer { padding: 3rem 0 4rem; border-top: 1px solid var(--line); }
+  footer h2 { margin-bottom: .75rem; }
+  footer .acciones { margin-top: 1.5rem; }
+
+  @media (max-width: 560px) {
+    .hero { padding-top: 3rem; }
+    .stack { grid-template-columns: 1fr; gap: 0; }
+    .stack dd { margin-bottom: .9rem; }
+    .proyecto.destacado { padding: 1.4rem 1.1rem; }
+    .log li { padding-left: 3.9rem; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .log .punto { animation: aparece .4s ease-out both; }
+    .log li:nth-child(2) .punto { animation-delay: .08s; }
+    .log li:nth-child(3) .punto { animation-delay: .16s; }
+    .log li:nth-child(4) .punto { animation-delay: .24s; }
+    .log li:nth-child(5) .punto { animation-delay: .32s; }
+    .log li:nth-child(6) .punto { animation-delay: .40s; }
+    .log li:nth-child(7) .punto { animation-delay: .48s; }
+    .log li:nth-child(8) .punto { animation-delay: .56s; }
+    @keyframes aparece { from { transform: scale(0); } to { transform: scale(1); } }
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="hero">
+    <img src="foto.jpg" alt="Raúl Núñez González">
+    <h1>Raúl Núñez González</h1>
+    <p class="intro">Desarrollador full stack junior en Almendralejo (Badajoz). Hago aplicaciones web y móviles con Java, Spring Boot, Angular, React y TypeScript.</p>
+    <p class="estado">Disponible para incorporarme ya, en remoto, híbrido o presencial</p>
+    <div class="acciones">
+      <a class="boton principal" href="mailto:raulnugo06@gmail.com">Escribirme</a>
+      <a class="boton" href="https://www.linkedin.com/in/raúl-núñez-gonzález-17032a389">LinkedIn</a>
+      <a class="boton" href="https://github.com/RaulNuGo06">GitHub</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="t-historial">
+    <h2 id="t-historial">Mi historial</h2>
+    <p class="leyenda"><span>Formación y trabajo</span><span class="l-rama">Proyectos</span></p>
+    <ol class="log">
+      <li class="rama">
+        <span class="punto" aria-hidden="true"></span>
+        <time>oct 2026</time>
+        <h3>App de gestión para un gimnasio</h3>
+        <p>Primer cliente de RAMABIT: una app para socios y administradores con rutinas, récords, uso de máquinas, afluencia y avisos.</p>
+      </li>
+      <li class="rama">
+        <span class="punto" aria-hidden="true"></span>
+        <time>oct 2026</time>
+        <h3>Web de El Centenario</h3>
+        <p>Propuesta de web para un restaurante de Almendralejo.</p>
+      </li>
+      <li>
+        <span class="punto" aria-hidden="true"></span>
+        <time>sep 2026</time>
+        <h3>Cofundo RAMABIT</h3>
+        <p>Con un socio, hacemos apps y webs a medida para negocios locales, desde la primera reunión con el cliente hasta la entrega.</p>
+      </li>
+      <li class="rama">
+        <span class="punto" aria-hidden="true"></span>
+        <time>jun 2026</time>
+        <h3>Rivange, proyecto de fin de ciclo</h3>
+        <p>App Android para un complejo deportivo, con Firebase y sensores meteorológicos reales.</p>
+      </li>
+      <li>
+        <span class="punto" aria-hidden="true"></span>
+        <time>jun 2026</time>
+        <h3>Técnico Superior en DAM</h3>
+        <p>Desarrollo de Aplicaciones Multiplataforma en el IES Arroyo Harnina.</p>
+      </li>
+      <li>
+        <span class="punto" aria-hidden="true"></span>
+        <time>mar – jun 2026</time>
+        <h3>Prácticas en BlueEnergy</h3>
+        <p>Funcionalidades y mantenimiento de aplicaciones web internas: Angular en el frontend y APIs REST con Java y Spring Boot. Incidencias en producción y consultas SQL.</p>
+      </li>
+      <li>
+        <span class="punto" aria-hidden="true"></span>
+        <time>2025</time>
+        <h3>24 cursos en OpenWebinars</h3>
+        <p>119 horas de Java, JDBC, JUnit 5, Git y Gitflow, Scrum, JavaScript, CSS y SQL.</p>
+      </li>
+      <li>
+        <span class="punto" aria-hidden="true"></span>
+        <time>jun 2024</time>
+        <h3>Técnico en Sistemas Microinformáticos y Redes</h3>
+        <p>IES Suárez de Figueroa.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-proyectos">
+    <h2 id="t-proyectos">Proyectos</h2>
+
+    <article class="proyecto destacado">
+      <h3>Rivange</h3>
+      <p class="que">App Android nativa para gestionar un complejo deportivo. La hice como proyecto de fin de ciclo y tiene 11 pantallas.</p>
+      <ul>
+        <li>Reserva de pistas de pádel, tenis, fútbol y baloncesto, comprobando que la pista esté libre.</li>
+        <li>Partidos abiertos: las plazas se ocupan con una transacción para que nadie se quede con la misma.</li>
+        <li>Tres roles: usuario, árbitro (pone el marcador) y administrador.</li>
+        <li>Ranking por puntos y chat en tiempo real.</li>
+        <li>Temperatura e índice de calor de una estación meteorológica real de Zafra, leídos de Home Assistant.</li>
+      </ul>
+      <ul class="tecnologias" aria-label="Tecnologías">
+        <li>Java</li><li>Android</li><li>Firebase Auth</li><li>Cloud Firestore</li><li>OkHttp</li><li>Home Assistant</li>
+      </ul>
+      <p class="enlaces"><a href="https://github.com/RaulNuGo06/Rivange">Ver el código</a></p>
+    </article>
+
+    <article class="proyecto">
+      <h3>App de gestión para un gimnasio</h3>
+      <p class="que">Para el primer cliente de RAMABIT, junto a mi socio. Los socios ven sus rutinas, récords y objetivos; el gimnasio gestiona socios, máquinas, avisos y afluencia.</p>
+      <p class="nota">El código es privado porque pertenece al cliente.</p>
+    </article>
+
+    <article class="proyecto">
+      <h3>El Centenario</h3>
+      <p class="que">Web de muestra para un restaurante de Almendralejo, sin dependencias. La carta está en un solo sitio del código para que el restaurante la pueda cambiar fácilmente.</p>
+      <ul class="tecnologias" aria-label="Tecnologías">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li>
+      </ul>
+      <p class="enlaces">
+        <a href="https://raulnugo06.github.io/el-centenario/">Ver la web</a>
+        <a href="https://github.com/RaulNuGo06/el-centenario">Ver el código</a>
+      </p>
+    </article>
+  </section>
+
+  <section aria-labelledby="t-stack">
+    <h2 id="t-stack">Con qué trabajo</h2>
+    <dl class="stack">
+      <dt>Lenguajes</dt><dd>Java, TypeScript, JavaScript, SQL, HTML y CSS</dd>
+      <dt>Backend</dt><dd>Spring Boot, JPA/Hibernate, Node.js, NestJS y APIs REST</dd>
+      <dt>Frontend</dt><dd>Angular y React</dd>
+      <dt>Móvil</dt><dd>Android con Java y Firebase</dd>
+      <dt>Bases de datos</dt><dd>MySQL, Cloud Firestore y Room</dd>
+      <dt>Forma de trabajar</dt><dd>Git y Gitflow, Scrum, JUnit 5, Postman, y asistentes de IA como Claude Code y GitHub Copilot</dd>
+    </dl>
+  </section>
+
+  <footer aria-labelledby="t-contacto">
+    <h2 id="t-contacto">¿Hablamos?</h2>
+    <p>Busco mi primer puesto como desarrollador. Puedes escribirme a <a href="mailto:raulnugo06@gmail.com">raulnugo06@gmail.com</a>.</p>
+    <div class="acciones">
+      <a class="boton principal" href="mailto:raulnugo06@gmail.com">Escribirme</a>
+      <a class="boton" href="https://www.linkedin.com/in/raúl-núñez-gonzález-17032a389">LinkedIn</a>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>
