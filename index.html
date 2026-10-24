@@ -201,7 +201,7 @@
         <span class="punto" aria-hidden="true"></span>
         <time>oct 2026</time>
         <h3>op<span class="ia">I</span>n<span class="ia">A</span></h3>
-        <p>Opiniones de clientes para negocios locales, con IA. Backend en Spring Boot y panel en Angular, con el código abierto en GitHub.</p>
+        <p>Opiniones de clientes para negocios locales, con IA: Claude clasifica cada opinión y resume lo que dicen los clientes. Backend en Spring Boot y panel en Angular, con el código abierto en GitHub.</p>
       </li>
       <li class="rama">
         <span class="punto" aria-hidden="true"></span>
@@ -267,12 +267,12 @@
       <ul>
         <li>API REST con cuentas, JWT y permisos por rol (dueño y empleado), comprobados en cada petición: quitar a un empleado le corta el acceso al momento.</li>
         <li>El enlace a Google se ofrece sea cual sea la nota: filtrar a los clientes descontentos va contra las normas de Google, y hay un test que lo comprueba.</li>
-        <li>Esquema versionado con Flyway, más de 30 tests contra PostgreSQL real con Testcontainers y CI con GitHub Actions.</li>
+        <li>Esquema versionado con Flyway, 65 tests (el backend contra PostgreSQL real con Testcontainers, el frontend con Vitest) y CI con GitHub Actions.</li>
         <li>App en Angular 22 con signals, sin zone.js, pensada primero para el móvil.</li>
-        <li>En desarrollo: resúmenes y respuestas propuestas con la API de Claude.</li>
+        <li>IA con la API de Claude: clasifica en segundo plano cada opinión por tema y urgencia, y escribe para el dueño un resumen de lo que dicen sus clientes. Respuestas en JSON con esquema fijo, el texto del cliente tratado como dato y el resumen guardado para no pagarlo dos veces.</li>
       </ul>
       <ul class="tecnologias" aria-label="Tecnologías">
-        <li>Java 21</li><li>Spring Boot 4</li><li>Spring Security</li><li>PostgreSQL</li><li>Flyway</li><li>Testcontainers</li><li>Angular 22</li><li>GitHub Actions</li>
+        <li>Java 21</li><li>Spring Boot 4</li><li>Spring Security</li><li>API de Claude</li><li>PostgreSQL</li><li>Flyway</li><li>Testcontainers</li><li>Angular 22</li><li>GitHub Actions</li>
       </ul>
       <p class="enlaces"><a href="https://github.com/RaulNuGo06/opina">Ver el código</a></p>
     </article>
