@@ -22,6 +22,7 @@
     --main: #2A55E5;
     --branch: #13966A;
     --focus: #2A55E5;
+    --ia: #A37200;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -33,6 +34,7 @@
       --main: #6F8FFF;
       --branch: #3CC992;
       --focus: #8FA8FF;
+      --ia: #F2B93A;
     }
   }
 
@@ -121,6 +123,10 @@
     border-radius: 6px; padding: 1.75rem 1.5rem;
   }
   .proyecto.destacado + .proyecto { border-top: 0; }
+  .proyecto.destacado + .proyecto.destacado { margin-top: 1.25rem; }
+  .ia { color: var(--ia); }
+  .capturas-web { display: grid; grid-template-columns: 1fr 2.6fr; gap: .75rem; margin-top: 1.25rem; align-items: start; }
+  .capturas-web img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
   .proyecto h3 { font-size: 1.6rem; }
   .proyecto .que { margin-top: .5rem; }
   .proyecto ul { margin: 1rem 0 0; padding-left: 1.2rem; }
@@ -154,6 +160,8 @@
     .stack { grid-template-columns: 1fr; gap: 0; }
     .stack dd { margin-bottom: .9rem; }
     .proyecto.destacado { padding: 1.4rem 1.1rem; }
+    .capturas-web { grid-template-columns: 1fr; }
+    .capturas-web img:first-child { max-width: 220px; }
     .log li { padding-left: 3.9rem; }
   }
   @media (prefers-reduced-motion: no-preference) {
@@ -165,6 +173,7 @@
     .log li:nth-child(6) .punto { animation-delay: .40s; }
     .log li:nth-child(7) .punto { animation-delay: .48s; }
     .log li:nth-child(8) .punto { animation-delay: .56s; }
+    .log li:nth-child(9) .punto { animation-delay: .64s; }
     @keyframes aparece { from { transform: scale(0); } to { transform: scale(1); } }
   }
 </style>
@@ -188,6 +197,12 @@
     <h2 id="t-historial">Mi historial</h2>
     <p class="leyenda"><span>Formación y trabajo</span><span class="l-rama">Proyectos</span></p>
     <ol class="log">
+      <li class="rama">
+        <span class="punto" aria-hidden="true"></span>
+        <time>oct 2026</time>
+        <h3>op<span class="ia">I</span>n<span class="ia">A</span></h3>
+        <p>Opiniones de clientes para negocios locales, con IA. Backend en Spring Boot y panel en Angular, con el código abierto en GitHub.</p>
+      </li>
       <li class="rama">
         <span class="punto" aria-hidden="true"></span>
         <time>oct 2026</time>
@@ -241,6 +256,26 @@
 
   <section aria-labelledby="t-proyectos">
     <h2 id="t-proyectos">Proyectos</h2>
+
+    <article class="proyecto destacado">
+      <h3>op<span class="ia">I</span>n<span class="ia">A</span></h3>
+      <p class="que">Opiniones de clientes para negocios locales, con la IA dentro del nombre. El cliente acerca el móvil a una tarjeta NFC o escanea un QR y opina en segundos; el negocio ve en un panel qué funciona y qué no.</p>
+      <div class="capturas-web">
+        <img src="img/opina-formulario.jpg" alt="Formulario del cliente en el móvil: cinco notas grandes y un comentario opcional" width="390" height="780" loading="lazy">
+        <img src="img/opina-panel.jpg" alt="Panel del negocio con la nota media, el reparto de notas y las últimas opiniones" width="880" height="656" loading="lazy">
+      </div>
+      <ul>
+        <li>API REST con cuentas, JWT y permisos por rol (dueño y empleado), comprobados en cada petición: quitar a un empleado le corta el acceso al momento.</li>
+        <li>El enlace a Google se ofrece sea cual sea la nota: filtrar a los clientes descontentos va contra las normas de Google, y hay un test que lo comprueba.</li>
+        <li>Esquema versionado con Flyway, más de 30 tests contra PostgreSQL real con Testcontainers y CI con GitHub Actions.</li>
+        <li>App en Angular 22 con signals, sin zone.js, pensada primero para el móvil.</li>
+        <li>En desarrollo: resúmenes y respuestas propuestas con la API de Claude.</li>
+      </ul>
+      <ul class="tecnologias" aria-label="Tecnologías">
+        <li>Java 21</li><li>Spring Boot 4</li><li>Spring Security</li><li>PostgreSQL</li><li>Flyway</li><li>Testcontainers</li><li>Angular 22</li><li>GitHub Actions</li>
+      </ul>
+      <p class="enlaces"><a href="https://github.com/RaulNuGo06/opina">Ver el código</a></p>
+    </article>
 
     <article class="proyecto destacado">
       <div class="marca">
