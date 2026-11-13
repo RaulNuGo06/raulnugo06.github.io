@@ -199,6 +199,12 @@
     <ol class="log">
       <li class="rama">
         <span class="punto" aria-hidden="true"></span>
+        <time>nov 2026</time>
+        <h3>Hueco</h3>
+        <p>Reservas de citas para negocios locales. API en NestJS y web en React, con el código abierto en GitHub.</p>
+      </li>
+      <li class="rama">
+        <span class="punto" aria-hidden="true"></span>
         <time>oct 2026</time>
         <h3>op<span class="ia">I</span>n<span class="ia">A</span></h3>
         <p>Opiniones de clientes para negocios locales, con IA: Claude clasifica cada opinión y resume lo que dicen los clientes. Backend en Spring Boot y panel en Angular, con el código abierto en GitHub.</p>
@@ -278,6 +284,25 @@
     </article>
 
     <article class="proyecto destacado">
+      <h3>Hueco</h3>
+      <p class="que">Reservas de citas para peluquerías, barberías, fisios o talleres. El cliente abre el enlace del negocio, elige servicio, día y hora desde el móvil y reserva sin crear cuenta; el dueño ve la agenda del día con una columna por profesional.</p>
+      <div class="capturas-web">
+        <img src="img/hueco-reserva.jpg" alt="Reserva en el móvil: días de la semana, horas libres y la franja sin huecos de mediodía" width="375" height="812" loading="lazy">
+        <img src="img/hueco-agenda.jpg" alt="Agenda del día en el panel, con una columna por profesional" width="800" height="531" loading="lazy">
+      </div>
+      <ul>
+        <li>Dos personas no pueden quedarse con el mismo hueco: lo impide PostgreSQL con una restricción de exclusión, y un test lanza diez reservas a la vez y comprueba que entra una.</li>
+        <li>Las horas libres salen del horario de cada profesional, con jornada partida, y se calculan en la zona horaria del negocio, con tests de los dos días de cambio de hora.</li>
+        <li>Panel con sesiones en cookie guardadas en PostgreSQL, contraseñas con scrypt y protección CSRF.</li>
+        <li>47 tests: los e2e arrancan la API contra PostgreSQL en WebAssembly (PGlite), y la CI levanta el Docker Compose completo y prueba la demo de verdad.</li>
+      </ul>
+      <ul class="tecnologias" aria-label="Tecnologías">
+        <li>NestJS 12</li><li>TypeScript</li><li>Drizzle</li><li>PostgreSQL</li><li>Zod</li><li>React 19</li><li>TanStack Query</li><li>Vitest</li><li>Docker</li><li>GitHub Actions</li>
+      </ul>
+      <p class="enlaces"><a href="https://github.com/RaulNuGo06/hueco">Ver el código</a></p>
+    </article>
+
+    <article class="proyecto destacado">
       <div class="marca">
         <img src="img/iron-club.png" alt="" width="48" height="48">
         <h3>App de marca blanca para gimnasios</h3>
@@ -334,7 +359,7 @@
       <dt>Backend</dt><dd>Spring Boot, JPA/Hibernate, Node.js, NestJS y APIs REST</dd>
       <dt>Frontend</dt><dd>Angular y React</dd>
       <dt>Móvil</dt><dd>Android con Java y Firebase</dd>
-      <dt>Bases de datos</dt><dd>MySQL, Cloud Firestore y Room</dd>
+      <dt>Bases de datos</dt><dd>PostgreSQL, MySQL, Cloud Firestore y Room</dd>
       <dt>Forma de trabajar</dt><dd>Git y Gitflow, Scrum, JUnit 5, Postman, y asistentes de IA como Claude Code y GitHub Copilot</dd>
     </dl>
   </section>
